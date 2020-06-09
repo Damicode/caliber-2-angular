@@ -41,22 +41,7 @@ stages{
                 }
           }
   
-  stage ('Init'){
-    
-    steps{
-         sh '''#!/bin/bash
-     echo "JAVA_HOME = ${JAVA_HOME}";
-     echo "PATH = ${PATH}";
-     echo "MAVEN_HOME = ${M2_HOME}";
-     
-   
-     npm install -g @angular/cli@6.0.8;
-     npm install
-    '''
-      
-    }
-    
-  }
+  
   
       stage(' Ng Version'){
             steps
