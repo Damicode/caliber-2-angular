@@ -14,10 +14,7 @@ agent any
 
 
     }
-     tools{
-     nodejs 'localNode'
-
-     }
+ 
 stages{
 
     stage ('Clonning from git'){
