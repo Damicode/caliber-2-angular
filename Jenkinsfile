@@ -75,9 +75,16 @@ stages{
     
  
         stage('Building the image'){
-          steps{
-             sh 'docker build . -t caliber-2-angular:damier-latest'
-          }
+         
+          
+           steps
+        {
+            script
+            {
+                dockerImage = docker.build("${Register}:my-image-Angular")
+            }
+        }
+          
         }
     
 
