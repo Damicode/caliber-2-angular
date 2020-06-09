@@ -68,7 +68,7 @@ stages{
    stage(' Build'){
             steps
                 {
-                sh 'npm run build:dev'
+                sh 'npm run build:caliber-2-angular'
                 }
           }
     
