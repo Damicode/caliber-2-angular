@@ -20,7 +20,7 @@ agent any
      }
 stages{
 
-    stage ('Clonning from git'){
+    stage ('Clonning from git testing'){
 
         steps
         {
