@@ -73,18 +73,7 @@ stages{
           }
     
     
-    stage(' Angular & SonarScanner'){
-            steps{
-                sh 'ng build sonar:sonar'
-            }
-        }
-
-        stage("Quality Gate for Sonar") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
-
+ 
         stage('Building the image'){
           steps{
              sh 'docker build . -t caliber-2-angular:damier-latest'
