@@ -24,7 +24,7 @@ stages{
 
         steps
         {
-            echo "Something here"
+            echo "Something here happening"
         }
 
 
