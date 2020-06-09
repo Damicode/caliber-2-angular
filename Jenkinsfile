@@ -33,7 +33,14 @@ stages{
     stage('Version'){
             steps
                 {
-                sh 'ng --version'
+                sh 'node --version'
+                }
+          }
+  
+     stage('Version'){
+            steps
+                {
+                sh ' npm --version'
                 }
           }
     
