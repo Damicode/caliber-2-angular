@@ -52,7 +52,7 @@ stages{
      echo "PATH = ${PATH}";
      echo "MAVEN_HOME = ${M2_HOME}";
      
-     echo "this is the project id environment"+GOOGLE_PROJECT_ID;
+   
      npm install -g @angular/cli@6.0.8;
      npm install
     '''
@@ -67,9 +67,30 @@ stages{
                 sh ' ng --version'
                 }
           }
+  
+   stage(' Build'){
+            steps
+                {
+                sh ' ng build'
+                }
+          }
     
     
+    stage('Build Angular & SonarScanner'){
+            steps{
+                sh 'ng build sonar:sonar'
+            }
+        }
 
+        stage("Quality Gate for Sonar") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+
+        stage('Build image'){
+            sh 'docker build . -t caliber-angular:damier-latest'
+        }
     
 
 
