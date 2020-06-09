@@ -15,7 +15,7 @@ agent any
 
     }
  
-
+  stages{
 
     stage(' Node Version'){
             steps
@@ -123,6 +123,6 @@ agent any
 
 
 
-
+}
 
 }
