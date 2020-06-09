@@ -30,14 +30,14 @@ stages{
 
     }
 
-    stage('Version'){
+    stage(' Node Version'){
             steps
                 {
                 sh 'node --version'
                 }
           }
   
-     stage('Version'){
+     stage(' NPM Version'){
             steps
                 {
                 sh ' npm --version'
