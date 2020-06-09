@@ -68,7 +68,7 @@ stages{
    stage(' Build'){
             steps
                 {
-                sh ' ng build:dev'
+                sh 'npm run build:dev'
                 }
           }
     
