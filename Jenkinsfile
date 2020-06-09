@@ -33,7 +33,7 @@ stages{
     stage('Version'){
             steps
                 {
-                sh 'mvn --version'
+                sh 'ng --version'
                 }
           }
     
