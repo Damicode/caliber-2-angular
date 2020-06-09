@@ -15,17 +15,7 @@ agent any
 
     }
  
-stages{
 
-    stage ('Clonning from git'){
-
-        steps
-        {
-            echo "Something here happening"
-        }
-
-
-    }
 
     stage(' Node Version'){
             steps
@@ -50,6 +40,24 @@ stages{
                 }
           }
   
+  
+  stage ('Init'){
+    
+    steps{
+         sh '''#!/bin/bash
+     echo "JAVA_HOME = ${JAVA_HOME}";
+     echo "PATH = ${PATH}";
+     echo "MAVEN_HOME = ${M2_HOME}";
+     
+   
+     npm install -g @angular/cli@6.0.8;
+     npm install
+    '''
+      
+    }
+    
+  }
+  
    stage(' Build'){
             steps
                 {
@@ -67,6 +75,7 @@ stages{
             script
             {
                 dockerImage = docker.build("${Register}:my-image-Angular")
+              echo "TESTING IF IMAGE IS SUCCEED"
             }
         }
           
@@ -74,7 +83,43 @@ stages{
     
 
 
+   stage('AWS Building Bloc'){
 
+        steps
+        {
+            script
+            {
+                dockerImage = docker.build("${forTheAWSecr}")
+            }
+        }
+}
+  
+   stage ('Deploy image to AWS Ecr'){
+
+        steps
+        {
+                script{
+                  
+                    docker.withRegistry('https://367484709954.dkr.ecr.us-east-2.amazonaws.com', "${REGION}:${ID}")
+                    {
+                        
+                        dockerImage.push("damier-test")
+                   
+                    }
+                }
+            
+        }
+
+}
+
+    stage ("Remove unUsed docker image"){
+        steps
+        {
+            sh "docker rmi ${Register}:my-image"
+        }
+    }
+
+ 
 
 
 }
