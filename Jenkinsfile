@@ -43,15 +43,15 @@ stages{
                 sh ' npm --version'
                 }
           }
+  
+      stage(' Ng Version'){
+            steps
+                {
+                sh ' ng --version'
+                }
+          }
     
-        stage ("initialize") {
-        steps {
-        sh '''
-        echo "PATH = ${PATH}"
-        echo "M2_HOME = ${M2_HOME}"
-        '''
-        }
-        }
+    
 
     
 
