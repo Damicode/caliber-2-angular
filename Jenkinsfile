@@ -71,12 +71,12 @@ stages{
    stage(' Build'){
             steps
                 {
-                sh ' ng build'
+                sh ' ng package'
                 }
           }
     
     
-    stage('Build Angular & SonarScanner'){
+    stage(' Angular & SonarScanner'){
             steps{
                 sh 'ng build sonar:sonar'
             }
@@ -88,8 +88,10 @@ stages{
             }
         }
 
-        stage('Build image'){
-            sh 'docker build . -t caliber-angular:damier-latest'
+        stage('Building the image'){
+          steps{
+             sh 'docker build . -t caliber-2-angular:damier-latest'
+          }
         }
     
 
