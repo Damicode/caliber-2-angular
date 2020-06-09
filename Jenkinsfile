@@ -15,7 +15,7 @@ agent any
 
     }
      tools{
-     maven 'maven-3'
+     nodejs 'localNode'
 
      }
 stages{
@@ -71,7 +71,7 @@ stages{
    stage(' Build'){
             steps
                 {
-                sh ' ng package'
+                sh ' ng build'
                 }
           }
     
