@@ -75,6 +75,7 @@ agent any
             script
             {
               sh'docker image prune'
+              echo 'yes'
                 dockerImage = docker.build("${Register}:my-image-Angular")
               echo "TESTING IF IMAGE IS SUCCEED"
             }
