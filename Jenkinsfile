@@ -34,6 +34,13 @@ agent any
           }
   
   
+      stage(' Build'){
+            steps
+                {
+                sh 'npm run build'
+                  sh 'pwd'
+                }
+          }
   
       stage(' Ng Version'){
             steps
@@ -47,13 +54,7 @@ agent any
   
  
   
-   stage(' Build'){
-            steps
-                {
-                sh 'ng build'
-                  sh 'pwd'
-                }
-          }
+ 
     
     
  
