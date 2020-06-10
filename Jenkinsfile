@@ -38,7 +38,7 @@ agent any
             steps
                 {
                 sh 'which ng'
-                  sh 'ng version'
+                 
                 }
           }
   
