@@ -27,7 +27,7 @@ agent any
      stage(' NPM Version'){
             steps
                 {
-                sh ' npm --version'
+                sh 'pwd'
                 }
           }
   
@@ -36,7 +36,7 @@ agent any
       stage(' Ng Version'){
             steps
                 {
-                sh ' ng --version'
+                sh 'which ng'
                 }
           }
   
@@ -46,7 +46,7 @@ agent any
    stage(' Build'){
             steps
                 {
-                sh 'npm run build'
+                sh 'ng build'
                 }
           }
     
