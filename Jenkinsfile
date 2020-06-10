@@ -49,6 +49,7 @@ agent any
             steps
                 {
                 sh 'ng build'
+                  sh 'pwd'
                 }
           }
     
