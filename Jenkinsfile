@@ -29,6 +29,7 @@ agent any
                 {
                 sh 'pwd'
                   sh 'npm version'
+                  sh 'npm --version'
                 }
           }
   
@@ -38,6 +39,7 @@ agent any
             steps
                 {
                 sh 'which ng'
+                  sh 'ng --version'
                  
                 }
           }
