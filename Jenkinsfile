@@ -37,7 +37,7 @@ agent any
       stage(' Build'){
             steps
                 {
-                sh 'npm run build'
+                sh 'ng build'
                   sh 'pwd'
                 }
           }
