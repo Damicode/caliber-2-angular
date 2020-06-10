@@ -8,7 +8,7 @@ agent any
         Register ="damier85/damier-raymond"
         RegisterCrudential ="Mydocker20"
         dockerImage =""
-        forTheAWSecr="367484709954.dkr.ecr.us-east-2.amazonaws.com/caliber-batch"
+        forTheAWSecr="367484709954.dkr.ecr.us-east-2.amazonaws.com/caliber-angular"
         Region ="ecr:us-east-2"
         ID="damierTestEcr"
 
@@ -74,6 +74,7 @@ agent any
         {
             script
             {
+              sh'docker image prune'
                 dockerImage = docker.build("${Register}:my-image-Angular")
               echo "TESTING IF IMAGE IS SUCCEED"
             }
